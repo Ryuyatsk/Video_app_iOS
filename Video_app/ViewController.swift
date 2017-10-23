@@ -7,15 +7,16 @@
 //
 
 import UIKit
-import AVKit
 import AVFoundation
 
 class ViewController: UIViewController {
     
+    
     var url: URL = {
-        var url = URL(string: "https://hogehoge.com")
+        var url = URL(string: "http://motto.tokyo/app/video/typing.mp4")
         return url!
     }()
+    
     
     /*
      下記から動画画面の実装
@@ -62,7 +63,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

@@ -133,6 +133,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import Foundation;
+@import AVFoundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -152,15 +154,28 @@ SWIFT_CLASS("_TtC9Video_app11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class AVURLAsset;
+@class AVPlayerItem;
+@class AVPlayer;
+@class AVPlayerLayer;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC9Video_app14ViewController")
 @interface ViewController : UIViewController
+@property (nonatomic, copy) NSURL * _Nonnull url;
+@property (nonatomic, strong) AVURLAsset * _Nonnull asset;
+@property (nonatomic, strong) AVPlayerItem * _Nonnull playerItem;
+@property (nonatomic, strong) AVPlayer * _Nonnull player;
+@property (nonatomic, strong) AVPlayerLayer * _Nonnull playerLayer;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface ViewController (SWIFT_EXTENSION(Video_app)) <AVAssetResourceLoaderDelegate>
 @end
 
 #pragma clang diagnostic pop

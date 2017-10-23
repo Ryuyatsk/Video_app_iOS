@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
 options: "bb2969c76f670a904795c88289187662"
-build_time: [562056072, 648465000]
+build_time: [562072517, 74677000]
 inputs:
-  "/Users/ryuya/Documents/Video_app/Video_app/ViewController.swift": [562056068, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/ViewController.swift": [562072516, 0]
   "/Users/ryuya/Documents/Video_app/Video_app/AppDelegate.swift": [562056068, 0]
