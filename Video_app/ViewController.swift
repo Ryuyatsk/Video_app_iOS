@@ -7,12 +7,57 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    var url: URL = {
+        var url = URL(string: "https://hogehoge.com")
+        return url!
+    }()
+    
+    /*
+     下記から動画画面の実装
+     */
+    
+    //AVURLAssetは持ってないから
+    //AVAssetResourceLoaderDelegateをしないといけないからextensionする
+    lazy var asset: AVURLAsset = {
+        var asset: AVURLAsset = AVURLAsset(url: self.url)
+        asset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
+        return asset
+    }()
+    
+    
+    lazy var playerItem: AVPlayerItem = {
+        var playerItem: AVPlayerItem = AVPlayerItem(asset: self.asset)
+        return playerItem
+    }()
+    
+    
+    lazy var player: AVPlayer = {
+        var player: AVPlayer = AVPlayer(playerItem: self.playerItem)
+        player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
+        return player
+    }()
+    
+    //動画の画面
+    lazy var playerLayer: AVPlayerLayer = {
+        var playerLayer: AVPlayerLayer = AVPlayerLayer(player: self.player)
+        playerLayer.frame = UIScreen.main.bounds
+        playerLayer.backgroundColor = UIColor.clear.cgColor
+        return playerLayer
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.layer.addSublayer(playerLayer)
+        player.play()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +65,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
+
+extension ViewController : AVAssetResourceLoaderDelegate {
+}
+
 
