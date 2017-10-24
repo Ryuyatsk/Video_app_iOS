@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet var goDetail_button: UIButton!
     
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     
@@ -69,14 +70,24 @@ class ViewController: UIViewController {
         
         
         // 動画の再生ボタンを生成.
-        let startButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        startButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.maxY - 50)
+        let startButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        startButton.layer.position = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
         startButton.layer.masksToBounds = true
-        startButton.layer.cornerRadius = 20.0
-        startButton.backgroundColor = UIColor.orange
-        startButton.setTitle("Start", for: UIControlState.normal)
-        startButton.addTarget(self, action: Selector("onButtonClick:"), for: UIControlEvents.touchUpInside)
+        startButton.backgroundColor = UIColor(red:255/255 , green:255/255 , blue:255/255 , alpha:0)
+        startButton.addTarget(self, action: #selector(ViewController.onButtonClick(sender: )), for: .touchUpInside)
         self.view.addSubview(startButton)
+        
+        
+        let startColor = UIColor(red:48/255, green:37/255, blue:184/255, alpha: 1).cgColor
+        let endColor = UIColor(red:200/255, green:109/255, blue:215/255, alpha: 1).cgColor
+        let layer = CAGradientLayer()
+        layer.colors = [startColor, endColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x: 1, y: 1)
+        layer.frame = CGRect(x: 0, y:  0, width: self.view.frame.size.width, height: 45)
+        goDetail_button.layer.addSublayer(layer)
+
+        
         
     }
     
@@ -87,11 +98,14 @@ class ViewController: UIViewController {
         
         // 再生されているなら停止
         if ((player.rate != 0) && (player.error == nil)){
+            print("停止する")
             player.pause()
         }
         // 停止されているなら再生
         else{
+            print("再生する")
             player.play()
+
         }
 
         

@@ -165,6 +165,7 @@ SWIFT_CLASS("_TtC9Video_app20DetailViewController")
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified fav_button;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified share_button;
 - (void)viewDidLoad;
+- (IBAction)onClickBuyButton:(UIButton * _Nonnull)sender;
 - (IBAction)onClickTwitterShare:(UIButton * _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -178,6 +179,7 @@ SWIFT_CLASS("_TtC9Video_app20DetailViewController")
 
 SWIFT_CLASS("_TtC9Video_app14ViewController")
 @interface ViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified goDetail_button;
 @property (nonatomic, readonly) CGFloat statusBarHeight;
 @property (nonatomic, copy) NSURL * _Nonnull url;
 @property (nonatomic, strong) AVURLAsset * _Nonnull asset;
@@ -189,7 +191,6 @@ SWIFT_CLASS("_TtC9Video_app14ViewController")
 - (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 - (void)playerItemDidReachEnd:(NSNotification * _Nonnull)notification;
 - (IBAction)goNextBySegue:(UIButton * _Nonnull)sender;
-- (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
