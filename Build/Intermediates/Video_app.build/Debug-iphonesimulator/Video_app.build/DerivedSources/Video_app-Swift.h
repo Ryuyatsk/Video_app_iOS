@@ -133,6 +133,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import CoreGraphics;
 @import Foundation;
 @import AVFoundation;
 #endif
@@ -154,21 +155,40 @@ SWIFT_CLASS("_TtC9Video_app11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIButton;
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC9Video_app20DetailViewController")
+@interface DetailViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified buy_button;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified fav_button;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified share_button;
+- (void)viewDidLoad;
+- (IBAction)onClickTwitterShare:(UIButton * _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class AVURLAsset;
 @class AVPlayerItem;
 @class AVPlayer;
 @class AVPlayerLayer;
-@class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC9Video_app14ViewController")
 @interface ViewController : UIViewController
+@property (nonatomic, readonly) CGFloat statusBarHeight;
 @property (nonatomic, copy) NSURL * _Nonnull url;
 @property (nonatomic, strong) AVURLAsset * _Nonnull asset;
 @property (nonatomic, strong) AVPlayerItem * _Nonnull playerItem;
 @property (nonatomic, strong) AVPlayer * _Nonnull player;
 @property (nonatomic, strong) AVPlayerLayer * _Nonnull playerLayer;
 - (void)viewDidLoad;
+- (void)onButtonClickWithSender:(UIButton * _Nonnull)sender;
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+- (void)playerItemDidReachEnd:(NSNotification * _Nonnull)notification;
+- (IBAction)goNextBySegue:(UIButton * _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
