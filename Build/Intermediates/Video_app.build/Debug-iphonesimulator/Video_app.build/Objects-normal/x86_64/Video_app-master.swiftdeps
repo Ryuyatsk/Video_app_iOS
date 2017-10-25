@@ -1,7 +1,11 @@
-version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
-options: "bb2969c76f670a904795c88289187662"
-build_time: [562149648, 838582000]
+version: "Apple Swift version 4.0 (swiftlang-900.0.65.2 clang-900.0.37)"
+options: "0dd6a0b0e03440985890ddf2cc319bb0"
+build_time: [1508895613, 26479000]
 inputs:
-  "/Users/ryuya/Documents/Video_app/Video_app/DetailViewController.swift": [562149465, 0]
-  "/Users/ryuya/Documents/Video_app/Video_app/ViewController.swift": [562149648, 0]
-  "/Users/ryuya/Documents/Video_app/Video_app/AppDelegate.swift": [562056068, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/CollectionViewController.swift": [1508894218, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/CustomUICollectionViewCell.swift": [1508851154, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/hogegogeCollectionViewController.swift": [1508850899, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/TopListViewController.swift": [1508851269, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/DetailViewController.swift": [1508894520, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/ViewController.swift": [1508895612, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/AppDelegate.swift": [1508740868, 0]

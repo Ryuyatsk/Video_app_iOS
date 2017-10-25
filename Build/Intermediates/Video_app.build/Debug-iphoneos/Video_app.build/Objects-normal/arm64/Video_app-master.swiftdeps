@@ -1,0 +1,9 @@
+version: "Apple Swift version 4.0 (swiftlang-900.0.65.2 clang-900.0.37)"
+options: "0130016d166147caa6474d46ff6afb43"
+build_time: [1508840341, 780578000]
+inputs:
+  "/Users/ryuya/Documents/Video_app/Video_app/CustomUICollectionViewCell.swift": [1508840341, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/TopListViewController.swift": [1508840341, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/DetailViewController.swift": [1508834265, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/ViewController.swift": [1508834448, 0]
+  "/Users/ryuya/Documents/Video_app/Video_app/AppDelegate.swift": [1508740868, 0]

@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var goDetail_button: UIButton!
     
+    @IBOutlet var mainView: UIView!
+    
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     
     var url: URL = {
@@ -48,7 +50,7 @@ class ViewController: UIViewController {
     //動画の画面
     lazy var playerLayer: AVPlayerLayer = {
         var playerLayer: AVPlayerLayer = AVPlayerLayer(player: self.player)
-        playerLayer.frame = CGRect(x:0 , y: 15, width: self.view.frame.size.width, height:self.view.frame.size.height - 45 - 15)
+        playerLayer.frame = CGRect(x:0 , y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height)
         playerLayer.backgroundColor = UIColor.clear.cgColor
         return playerLayer
     }()
@@ -65,7 +67,7 @@ class ViewController: UIViewController {
         playerItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         //動画が終わったタイミングを監視
         NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-        view.layer.addSublayer(playerLayer)
+        mainView.layer.addSublayer(playerLayer)
         player.play()
         
         
@@ -80,12 +82,12 @@ class ViewController: UIViewController {
         
         let startColor = UIColor(red:48/255, green:37/255, blue:184/255, alpha: 1).cgColor
         let endColor = UIColor(red:200/255, green:109/255, blue:215/255, alpha: 1).cgColor
-        let layer = CAGradientLayer()
-        layer.colors = [startColor, endColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
-        layer.endPoint = CGPoint(x: 1, y: 1)
-        layer.frame = CGRect(x: 0, y:  0, width: self.view.frame.size.width, height: 45)
-        goDetail_button.layer.addSublayer(layer)
+        let alayer = CAGradientLayer()
+        alayer.colors = [startColor, endColor]
+        alayer.startPoint = CGPoint(x: 0, y: 0)
+        alayer.endPoint = CGPoint(x: 1, y: 1)
+        alayer.frame = CGRect(x: 0, y:  0, width: self.view.frame.size.width, height: 45)
+        goDetail_button.layer.addSublayer(alayer)
 
         
         

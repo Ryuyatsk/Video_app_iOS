@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet var fav_button: UIButton!
     @IBOutlet var share_button: UIButton!
     
+    @IBOutlet var descriptionField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,12 +35,13 @@ class DetailViewController: UIViewController {
         buy_button.layer.cornerRadius = 20
         buy_button.layer.addSublayer(layer)
         
+        descriptionField.isEditable = false
+        
         fav_button.layer.cornerRadius = 15
         fav_button.layer.shadowColor = UIColor.black.cgColor
         fav_button.layer.shadowOffset = CGSize(width: 0, height: 0)
         fav_button.layer.shadowOpacity = 0.2
         fav_button.layer.shadowRadius = 10.0
-        
         
         share_button.layer.cornerRadius = 15
         share_button.layer.shadowColor = UIColor.black.cgColor
